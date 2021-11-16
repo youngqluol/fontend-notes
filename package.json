@@ -1,0 +1,15 @@
+{
+  "name": "frontend-blogs",
+  "version": "1.0.0",
+  "repository": "git@github.com:youngqluol/frontend-blogs.git",
+  "author": "yongqing_luo <yongqing_luo@kingdee.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  }
+}
