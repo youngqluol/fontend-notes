@@ -5,7 +5,17 @@ module.exports = {
   ],
   themeConfig: {
     logo: '/logo.jpg',
-    sidebar: 'auto',
     lastUpdated: 'Last Updated',
+    sidebar: 'auto', // 侧边栏
+    nav: [ // 右上角导航
+      {
+        text: 'JavaScript',
+        link: '/pages/JavaScript/'
+      },
+      {
+        text: 'HTML',
+        link: '/pages/HTML/'
+      }
+    ]
   }
 }
