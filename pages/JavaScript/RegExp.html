@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>正则 | youngqluol&#39;s blogs</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/logo.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.e33ea492.js" as="script"><link rel="preload" href="/assets/js/2.9c8862ee.js" as="script"><link rel="preload" href="/assets/js/11.4a8ecf3e.js" as="script"><link rel="prefetch" href="/assets/js/10.c307fcf2.js"><link rel="prefetch" href="/assets/js/12.bdcc4791.js"><link rel="prefetch" href="/assets/js/13.bb6b48d5.js"><link rel="prefetch" href="/assets/js/14.690786e5.js"><link rel="prefetch" href="/assets/js/3.b3549bc5.js"><link rel="prefetch" href="/assets/js/4.9c0d3927.js"><link rel="prefetch" href="/assets/js/5.8fb2962b.js"><link rel="prefetch" href="/assets/js/6.7a505dc8.js"><link rel="prefetch" href="/assets/js/7.1ebac3c6.js"><link rel="prefetch" href="/assets/js/8.d8e375e5.js"><link rel="prefetch" href="/assets/js/9.ecd8904a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="youngqluol's blogs" class="logo"> <span class="site-name can-hide">youngqluol's blogs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/pages/JavaScript/" class="nav-link router-link-active">
+  JavaScript
+</a></div><div class="nav-item"><a href="/pages/HTML/" class="nav-link">
+  HTML
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/pages/JavaScript/" class="nav-link router-link-active">
+  JavaScript
+</a></div><div class="nav-item"><a href="/pages/HTML/" class="nav-link">
+  HTML
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>正则</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="正则"><a href="#正则" class="header-anchor">#</a> 正则</h3> <h5 id="基础"><a href="#基础" class="header-anchor">#</a> 基础</h5> <ul><li>汉字：<code>[\u4e00-\u9fa5]</code></li> <li>数字：<code>[0-9]</code>、<code>\d</code></li> <li>非数字：<code>[^0-9]</code>、<code>\D</code></li> <li>英文、数字、下划线: <code>[a-zA-Z0-9_]</code>、<code>\w</code></li> <li>非英文、数字、下划线: <code>[^a-zA-Z0-9_]</code>、<code>\W</code></li> <li>空白字符: <code>\s</code></li> <li>非空白字符：<code>\S</code></li> <li>空格换行：<code>\n\t</code></li> <li>任意字符：<code>.</code></li> <li>特殊字符需要加 <code>\</code> 进行转义</li></ul> <h5 id="数量词"><a href="#数量词" class="header-anchor">#</a> 数量词</h5> <ul><li>正好出现n次：<code>{n}</code></li> <li>最少n，最多m：<code>{n,m}</code></li> <li>至少n，最多不限：<code>{n,}</code></li> <li>至少出现1次：<code>+</code></li> <li>可有可无：<code>?</code></li> <li>不限制：<code>*</code></li></ul> <h5 id="标志符"><a href="#标志符" class="header-anchor">#</a> 标志符：</h5> <ul><li><code>i</code>: 不区分大小写</li> <li><code>g</code>：全局匹配（所有匹配项都能够被找到。如果没有，将会在找到第一个匹配项后停止）</li> <li><code>m</code>: 多行匹配
+（改变了插入符号和美元符号的含义。在多行模式下，它们代表一行的开头和结尾，而不是整个字符串）</li> <li><code>^</code>: 以什么开头（用在方括号中时表示 非）</li> <li>$: 以什么结束</li></ul> <h5 id="子表达式"><a href="#子表达式" class="header-anchor">#</a> 子表达式</h5> <ul><li>圆括号里的部分我们可以看作是一个子表达式。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> reg<span class="token operator">=</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(\d)([a-z]*)</span><span class="token regex-delimiter">/</span><span class="token regex-flags">gi</span></span>
+<span class="token comment">//(\d)就是第一个子表达式</span>
+<span class="token comment">//([a-z]) 是第二个子表达式</span>
+</code></pre></div><h5 id="捕获和反捕获"><a href="#捕获和反捕获" class="header-anchor">#</a> 捕获和反捕获</h5> <div class="language- extra-class"><pre class="language-text"><code>多个子表达式所匹配到的内容按顺序出现在内存的缓冲区中捕获数组，这个我们称为捕获
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'1adkk'</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> reg<span class="token operator">=</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(\d)([a-z]*)</span><span class="token regex-delimiter">/</span><span class="token regex-flags">gi</span></span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> RegExp<span class="token punctuation">.</span>$<span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> RegExp<span class="token punctuation">.</span>$<span class="token number">2</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> RegExp<span class="token punctuation">.</span>$<span class="token number">3</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token comment">//输出结果：</span>
+ <span class="token number">1</span>
+ adkk
+ 
+</code></pre></div><h5 id="贪婪匹配"><a href="#贪婪匹配" class="header-anchor">#</a> 贪婪匹配</h5> <div class="language- extra-class"><pre class="language-text"><code>贪婪匹配：当正则表达式中包含能接受重复的限定符时，
+通常的行为是（在使整个表达式能得到匹配的前提下）匹配尽可能多的字符，这匹配方式叫做贪婪匹配。
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'1adkk adkkk adkkkk'</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">([a-z]){4,6}</span><span class="token regex-delimiter">/</span><span class="token regex-flags">gi</span></span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> result <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+输出结果：  
+    <span class="token number">0</span><span class="token operator">:</span> <span class="token string">&quot;adkk&quot;</span>
+    <span class="token number">1</span><span class="token operator">:</span> <span class="token string">&quot;adkkk&quot;</span>
+    <span class="token number">2</span><span class="token operator">:</span> <span class="token string">&quot;adkkkk&quot;</span>
+</code></pre></div><h5 id="懒惰匹配-非贪婪匹配"><a href="#懒惰匹配-非贪婪匹配" class="header-anchor">#</a> 懒惰匹配（非贪婪匹配）</h5> <div class="language- extra-class"><pre class="language-text"><code>当正则表达式中包含能接受重复的限定符时，通常的行为是
+（在使整个表达式能得到匹配的前提下）匹配尽可能少的字符，这匹配方式叫做懒惰匹配。
+</code></pre></div><h6 id="懒惰量词是在贪婪量词后面加个"><a href="#懒惰量词是在贪婪量词后面加个" class="header-anchor">#</a> 懒惰量词是在贪婪量词后面加个<code>?</code></h6> <ul><li><code>*?</code>: 重复多次，但是尽可能少重复</li> <li><code>+?</code>: 重复1次，但是尽可能少重复</li> <li><code>??</code>: 重复0次、1次，但是尽可能少重复</li> <li><code>{n,m}?</code>: 重复n~m次，但是尽可能少重复</li> <li><code>{n,}?</code>: 重复n次以上，但是尽可能少重复</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">11/17/2021, 9:28:49 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e33ea492.js" defer></script><script src="/assets/js/2.9c8862ee.js" defer></script><script src="/assets/js/11.4a8ecf3e.js" defer></script>
+  </body>
+</html>

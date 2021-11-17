@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>adb调试（Andriod Debug Bridge） | youngqluol&#39;s blogs</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/logo.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.e33ea492.js" as="script"><link rel="preload" href="/assets/js/2.9c8862ee.js" as="script"><link rel="preload" href="/assets/js/13.bb6b48d5.js" as="script"><link rel="prefetch" href="/assets/js/10.c307fcf2.js"><link rel="prefetch" href="/assets/js/11.4a8ecf3e.js"><link rel="prefetch" href="/assets/js/12.bdcc4791.js"><link rel="prefetch" href="/assets/js/14.690786e5.js"><link rel="prefetch" href="/assets/js/3.b3549bc5.js"><link rel="prefetch" href="/assets/js/4.9c0d3927.js"><link rel="prefetch" href="/assets/js/5.8fb2962b.js"><link rel="prefetch" href="/assets/js/6.7a505dc8.js"><link rel="prefetch" href="/assets/js/7.1ebac3c6.js"><link rel="prefetch" href="/assets/js/8.d8e375e5.js"><link rel="prefetch" href="/assets/js/9.ecd8904a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="youngqluol's blogs" class="logo"> <span class="site-name can-hide">youngqluol's blogs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/pages/JavaScript/" class="nav-link router-link-active">
+  JavaScript
+</a></div><div class="nav-item"><a href="/pages/HTML/" class="nav-link">
+  HTML
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/pages/JavaScript/" class="nav-link router-link-active">
+  JavaScript
+</a></div><div class="nav-item"><a href="/pages/HTML/" class="nav-link">
+  HTML
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>adb调试（Andriod Debug Bridge）</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="adb调试-andriod-debug-bridge"><a href="#adb调试-andriod-debug-bridge" class="header-anchor">#</a> adb调试（Andriod Debug Bridge）</h3> <h5 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h5> <ul><li><p><a href="https://www.cnblogs.com/lsdb/p/9438215.html" target="_blank" rel="noopener noreferrer">点这里去下载<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></li> <li><p>直接将下载的压缩包解压到c盘某目录下(如：<code>C:\Program Files\adb</code>),就安装完毕了</p></li> <li><p>配置环境变量，将上面的目录添加到环境变量的path属性下</p></li></ul> <h5 id="使用"><a href="#使用" class="header-anchor">#</a> 使用</h5> <ul><li>USB接口连接手机（打开开发者模式）</li> <li>查看当前连接的设备</li></ul> <div class="language-cmd extra-class"><pre class="language-text"><code>adb devices
+</code></pre></div><ul><li>复制手机文件到电脑</li></ul> <div class="language-cmd extra-class"><pre class="language-text"><code>adb pull /sdcard/carrot C:\Users\W9002564\Desktop 
+</code></pre></div><ul><li>复制电脑文件到手机</li></ul> <div class="language-cmd extra-class"><pre class="language-text"><code>adb push C:\Users\W9002564\Desktop/test.txt /sdcard
+</code></pre></div><ul><li>安装APP应用</li></ul> <div class="language-cmd extra-class"><pre class="language-text"><code>adb install -r xxx.apk
+</code></pre></div><ul><li>卸载手机应用</li></ul> <div class="language-cmd extra-class"><pre class="language-text"><code>adb shell 进入shell模式
+pm list packages  查看所有应用
+pm list packages -s  查看系统应用
+pm list packages -3  查看第三方应用
+pm list packages huawei 查看包名包含huawei的应用列表
+找到包名后
+exit 退出shell模式
+adb uninstall 包名
+</code></pre></div><ul><li>查看手机日志,常见操作“查看游戏代码执行后的日志”</li></ul> <div class="language-cmd extra-class"><pre class="language-text"><code># 只查看游戏代码的⽇日志
+adb logcat -s jswrapper
+
+# 可以配合 grep 过滤⽇日志
+adb logcat -s jswrapper | grep xxx
+</code></pre></div><h3 id="谷歌浏览器调试手机页面-现仅对测试环境软件商店"><a href="#谷歌浏览器调试手机页面-现仅对测试环境软件商店" class="header-anchor">#</a> 谷歌浏览器调试手机页面（现仅对测试环境软件商店）</h3> <p>先连接好手机（开发者选项开启，允许<code>usb</code>调试）,然后打开以下网址：</p> <div class="language-js extra-class"><pre class="language-js"><code>chrome<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>inspect<span class="token operator">/</span>#devices
+</code></pre></div><h3 id="vconsole调试移动端"><a href="#vconsole调试移动端" class="header-anchor">#</a> vconsole调试移动端</h3> <p>在html的</p><head></head>加入如下代码<p></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">&quot;text/javascript&quot;</span> src<span class="token operator">=</span><span class="token string">&quot;https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+    <span class="token keyword">var</span> vConsole <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VConsole</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><h3 id="谷歌浏览器相关"><a href="#谷歌浏览器相关" class="header-anchor">#</a> 谷歌浏览器相关</h3> <h5 id="基本调试方式"><a href="#基本调试方式" class="header-anchor">#</a> 基本调试方式</h5> <ul><li>代码里写上debugger</li> <li><code>Sources</code>里 代码行打断点
+<ol><li>&quot;点击Sources菜单&quot;——&quot;左侧树中找到相应文件&quot;——&quot;点击行号列&quot;即可完成在当前行添加/删除断点操作。</li> <li>从左至右图标的作用分别是：</li></ol> <div class="language- extra-class"><pre><code>- 暂停/恢复脚本执行（程序执行到下一断点停止） F8
+- 执行到下一步的函数调用（跳到下一行）。 F10
+- 进入当前函数。 F11
+- 跳出当前执行函数。 shift + F11
+- 关闭/开启所有断点（不会取消）。 ctrl + F8
+- 异常情况自动断点设置。 
+</code></pre></div></li> <li>console
+<ol><li><code>console.log</code></li> <li><code>console.dir</code>可以把一个对象的属性以可交互的形式展示出来</li> <li><code>console.table</code> 当你有大量的数据（例如很长的数组、巨大的对象等等）需要展示的时候，它特别有用。</li></ol></li></ul> <h5 id="snippets-随时编写代码"><a href="#snippets-随时编写代码" class="header-anchor">#</a> Snippets 随时编写代码</h5> <ul><li><code>Chrome</code>在<code>souces</code>页面提供<code>snippets</code>一栏，这里我们可以随时编写<code>JS</code>代码，运行结果会打印到控制台。代码是全局保存的，我们在任何页面，包括新建标签页，都可以查看或运行这些代码。</li> <li>我们不再需要为了运行一小段<code>JS</code>代码而新建一个HTML页面</li> <li>右键文件 =&gt; <code>Run</code> 运行代码</li></ul> <h5 id="copy接口格式化接口返回的数据"><a href="#copy接口格式化接口返回的数据" class="header-anchor">#</a> <code>copy</code>接口格式化接口返回的数据</h5> <ul><li><code>Network</code> 选择某个接口 =&gt; 右键 =&gt; <code>copy</code> =&gt; <code>copy response</code></li> <li>在<code>console</code>页面 直接调用<code>copy</code>函数（将复制的内容当做参数传入）</li> <li>此时<code>ctrl + v</code> 得到的就是格式化后的<code>jason</code>数据</li></ul> <h5 id="debug接口"><a href="#debug接口" class="header-anchor">#</a> debug接口</h5> <ul><li><code>Chrome</code>控制台提供<code>debug</code>接口，可以传入一个函数，当这个函数下次执行的时候，调试器会自动在该函数中进行断点调试。</li> <li><code>debug</code>函数还提供了定位功能，它能够让我们很快的找到指定的函数。</li></ul> <h5 id="条件breakpoint"><a href="#条件breakpoint" class="header-anchor">#</a> 条件<code>breakpoint</code></h5> <ul><li>我们可以给断点设置表达式，当表达式为<code>true</code>时断点调试才会生效，这就是条件断点。</li> <li>右键断点行左侧 =&gt; <code>Edit breakpoint</code></li></ul> <h5 id="async调试"><a href="#async调试" class="header-anchor">#</a> <code>Async</code>调试</h5> <ul><li>调试异步函数所设计一个功能。</li> <li>在<code>Promise</code>被广泛应用的今天，我们都知道，<code>Promise</code>的回调是异步执行的，没有开启<code>Async</code>模式前，调动栈只记录到回调函数本身，我们无法找到代码执行的顺序，这给我们调试带来巨大的困难。<code>Async</code>模式可以解决这个问题</li></ul> <h5 id="使用-console-time-和-console-timeend-来标记循环耗时"><a href="#使用-console-time-和-console-timeend-来标记循环耗时" class="header-anchor">#</a> 使用 <code>console.time()</code> 和 <code>console.timeEnd()</code> 来标记循环耗时</h5> <div class="language-js extra-class"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token string">'Timer1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+<span class="token keyword">var</span> items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ 
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   items<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>index<span class="token operator">:</span> i<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+console<span class="token punctuation">.</span><span class="token function">timeEnd</span><span class="token punctuation">(</span><span class="token string">'Timer1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">11/17/2021, 9:28:49 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e33ea492.js" defer></script><script src="/assets/js/2.9c8862ee.js" defer></script><script src="/assets/js/13.bb6b48d5.js" defer></script>
+  </body>
+</html>
