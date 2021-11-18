@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/frontend-blogs/',
   title: 'youngqluol\'s blogs',
   head: [
     ['link', { rel: 'icon', href: '/logo.jpg' }]

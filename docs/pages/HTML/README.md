@@ -5,4 +5,4 @@ sidebar: false
 
 # HTML
 
-- [跨域](./flex.md)
+- [实现自适应布局](./flex.md)
