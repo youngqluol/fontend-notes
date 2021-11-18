@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>单元素/组件的过渡 | youngqluol&#39;s blogs</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/frontend-blogs/logo.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/frontend-blogs/assets/css/0.styles.09184f4e.css" as="style"><link rel="preload" href="/frontend-blogs/assets/js/app.c6807779.js" as="script"><link rel="preload" href="/frontend-blogs/assets/js/2.9c8862ee.js" as="script"><link rel="preload" href="/frontend-blogs/assets/js/23.891c8a20.js" as="script"><link rel="prefetch" href="/frontend-blogs/assets/js/10.ef7b6cc4.js"><link rel="prefetch" href="/frontend-blogs/assets/js/11.4a8ecf3e.js"><link rel="prefetch" href="/frontend-blogs/assets/js/12.a24ed91a.js"><link rel="prefetch" href="/frontend-blogs/assets/js/13.c9b28ca3.js"><link rel="prefetch" href="/frontend-blogs/assets/js/14.db4e34cd.js"><link rel="prefetch" href="/frontend-blogs/assets/js/15.70504961.js"><link rel="prefetch" href="/frontend-blogs/assets/js/16.cc0ad624.js"><link rel="prefetch" href="/frontend-blogs/assets/js/17.5a32792c.js"><link rel="prefetch" href="/frontend-blogs/assets/js/18.19744f08.js"><link rel="prefetch" href="/frontend-blogs/assets/js/19.3ac3f497.js"><link rel="prefetch" href="/frontend-blogs/assets/js/20.a7e5e8a3.js"><link rel="prefetch" href="/frontend-blogs/assets/js/21.bbe683ef.js"><link rel="prefetch" href="/frontend-blogs/assets/js/22.30538fa4.js"><link rel="prefetch" href="/frontend-blogs/assets/js/24.d2355ff2.js"><link rel="prefetch" href="/frontend-blogs/assets/js/25.f66bc3ca.js"><link rel="prefetch" href="/frontend-blogs/assets/js/26.1cb585fe.js"><link rel="prefetch" href="/frontend-blogs/assets/js/27.8a1aacd0.js"><link rel="prefetch" href="/frontend-blogs/assets/js/28.01c1201e.js"><link rel="prefetch" href="/frontend-blogs/assets/js/3.d719ab82.js"><link rel="prefetch" href="/frontend-blogs/assets/js/4.9c0d3927.js"><link rel="prefetch" href="/frontend-blogs/assets/js/5.8fb2962b.js"><link rel="prefetch" href="/frontend-blogs/assets/js/6.7a505dc8.js"><link rel="prefetch" href="/frontend-blogs/assets/js/7.1ebac3c6.js"><link rel="prefetch" href="/frontend-blogs/assets/js/8.7a5d7e5c.js"><link rel="prefetch" href="/frontend-blogs/assets/js/9.ecd8904a.js">
+    <link rel="stylesheet" href="/frontend-blogs/assets/css/0.styles.09184f4e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/frontend-blogs/" class="home-link router-link-active"><img src="/frontend-blogs/logo.jpg" alt="youngqluol's blogs" class="logo"> <span class="site-name can-hide">youngqluol's blogs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/frontend-blogs/pages/JavaScript/" class="nav-link">
+  JavaScript
+</a></div><div class="nav-item"><a href="/frontend-blogs/pages/HTML/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/frontend-blogs/pages/Vue/" class="nav-link router-link-active">
+  Vue
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/frontend-blogs/pages/JavaScript/" class="nav-link">
+  JavaScript
+</a></div><div class="nav-item"><a href="/frontend-blogs/pages/HTML/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/frontend-blogs/pages/Vue/" class="nav-link router-link-active">
+  Vue
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>单元素/组件的过渡</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="单元素-组件的过渡"><a href="#单元素-组件的过渡" class="header-anchor">#</a> 单元素/组件的过渡</h3> <h5 id="vue封装了一个transition组件"><a href="#vue封装了一个transition组件" class="header-anchor">#</a> Vue封装了一个<code>transition</code>组件</h5> <ul><li>用<code>transition</code>组件将单元素或者组件包裹起来，就可以实现过渡效果（<em>进入、离开</em>）</li></ul> <h5 id="_4种情形"><a href="#_4种情形" class="header-anchor">#</a> 4种情形</h5> <ul><li>条件渲染（v-if）</li> <li>条件展示（v-show）</li> <li>动态组件</li> <li>组件根节点</li></ul> <h5 id="vue的处理"><a href="#vue的处理" class="header-anchor">#</a> Vue的处理</h5> <ul><li>自动嗅探目标元素是否应用了 CSS 过渡或动画，如果是，在恰当的时机添加/删除 CSS 类名。</li> <li>如果过渡组件提供了 JavaScript 钩子函数，这些钩子函数将在恰当的时机被调用。</li> <li>如果没有找到 JavaScript 钩子并且也没有检测到 CSS 过渡/动画，DOM 操作 (插入/删除) 在下一帧中立即执行。</li></ul> <h5 id="_6个过渡类名"><a href="#_6个过渡类名" class="header-anchor">#</a> 6个过渡类名</h5> <ul><li><code>v-enter</code>:定义进入过渡的开始状态。(在元素被插入之前生效，在元素被插入之后的下一帧移除)</li> <li><code>v-enter-active</code>:定义进入过渡生效时的状态。(在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数)</li> <li><code>v-enter-to</code>:2.1.8版及以上 定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter 被移除)，在过渡/动画完成之后移除。</li> <li><code>v-leave</code>:定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。</li> <li><code>v-leave-active</code>:定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</li> <li><code>v-leave-to</code>:2.1.8版及以上 定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave 被删除)，在过渡/动画完成之后移除。</li></ul> <h5 id="默认类名前缀和自定义类名前缀"><a href="#默认类名前缀和自定义类名前缀" class="header-anchor">#</a> 默认类名前缀和自定义类名前缀</h5> <ul><li>如果你使用一个没有名字的 <code>&lt;transition&gt;</code>，则 v- 是这些类名的默认前缀。如果你使用了 <code>&lt;transition name=&quot;my-transition&quot;&gt;</code>，那么 <code>v-enter</code> 会替换为 <code>my-transition-enter</code>。</li></ul> <h5 id="css过渡"><a href="#css过渡" class="header-anchor">#</a> CSS过渡</h5> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>fade<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>go<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>看我怎么没的<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>go = !go<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>点我<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>less<span class="token punctuation">&quot;</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.fade-enter, .fade-leave-to</span> <span class="token punctuation">{</span>
+      <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>50px<span class="token punctuation">,</span> 50px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.fade-enter-active</span> <span class="token punctuation">{</span>
+      <span class="token property">transition</span><span class="token punctuation">:</span> all .5s ease-in<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">.fade-leave-active</span> <span class="token punctuation">{</span>
+      <span class="token property">transition</span><span class="token punctuation">:</span> all .5s ease-out<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h5 id="css动画"><a href="#css动画" class="header-anchor">#</a> CSS动画</h5> <ul><li>CSS 动画用法同 CSS 过渡，区别是在动画中 v-enter 类名在节点插入 DOM 后不会立即删除，而是在 animationend 事件触发时删除。</li></ul> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">&lt;style lang=&quot;less&quot; scoped&gt;
+  .fade-enter-active</span> <span class="token punctuation">{</span>
+  <span class="token property">animation</span><span class="token punctuation">:</span> bounce-in .5s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.fade-leave-active</span> <span class="token punctuation">{</span>
+  <span class="token property">animation</span><span class="token punctuation">:</span> bounce-in .5s reverse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@keyframes</span> bounce-in</span> <span class="token punctuation">{</span>
+  <span class="token selector">0%</span> <span class="token punctuation">{</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">50%</span> <span class="token punctuation">{</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>1.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector">100%</span> <span class="token punctuation">{</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+&lt;/style&gt;
+</code></pre></div><h5 id="自定义过渡的类名"><a href="#自定义过渡的类名" class="header-anchor">#</a> 自定义过渡的类名</h5> <p>优先级高于普通的类名</p> <ul><li><code>enter-class</code></li> <li><code>enter-active-class</code></li> <li><code>enter-to-class</code></li> <li><code>leave-class</code></li> <li><code>leave-active-class</code></li> <li><code>leave-to-class</code></li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!--可以结合Animate.css使用--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://cdn.jsdelivr.net/npm/animate.css@3.5.1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>stylesheet<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text/css<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>example-3<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>show = !show<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    Toggle render
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span>
+    <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>custom-classes-transition<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">enter-active-class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>animated tada<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">leave-active-class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>animated bounceOutRight<span class="token punctuation">&quot;</span></span>
+  <span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>show<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h5 id="显性的过渡持续时间"><a href="#显性的过渡持续时间" class="header-anchor">#</a> 显性的过渡持续时间</h5> <p>用 <code>&lt;transition&gt;</code> 组件上的 duration 属性定制一个显性的过渡持续时间 (以毫秒计)：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span> <span class="token attr-name">:duration</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1000<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!--或者--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span> <span class="token attr-name">:duration</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{ enter: 500, leave: 800 }<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h5 id="javascript钩子"><a href="#javascript钩子" class="header-anchor">#</a> JavaScript钩子</h5> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>before-enter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>beforeEnter<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>enter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>enter<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>after-enter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>afterEnter<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>enter-cancelled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>enterCancelled<span class="token punctuation">&quot;</span></span>
+
+  <span class="token attr-name"><span class="token namespace">v-on:</span>before-leave</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>beforeLeave<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>leave</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>leave<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>after-leave</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>afterLeave<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>leave-cancelled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>leaveCancelled<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- ... --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token comment">// --------</span>
+  <span class="token comment">// 进入中</span>
+  <span class="token comment">// --------</span>
+
+  <span class="token function-variable function">beforeEnter</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// 当与 CSS 结合使用时</span>
+  <span class="token comment">// 回调函数 done 是可选的</span>
+  <span class="token function-variable function">enter</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">el<span class="token punctuation">,</span> done</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+    <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">afterEnter</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">enterCancelled</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// --------</span>
+  <span class="token comment">// 离开时</span>
+  <span class="token comment">// --------</span>
+
+  <span class="token function-variable function">beforeLeave</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// 当与 CSS 结合使用时</span>
+  <span class="token comment">// 回调函数 done 是可选的</span>
+  <span class="token function-variable function">leave</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">el<span class="token punctuation">,</span> done</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+    <span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">afterLeave</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// leaveCancelled 只用于 v-show 中</span>
+  <span class="token function-variable function">leaveCancelled</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li><em>当只用 JavaScript 过渡(也就是说用钩子函数控制过渡)的时候，在 <code>enter</code> 和 <code>leave</code> 中必须使用 done 进行回调。否则，它们将被同步调用，过渡会立即完成。</em></li> <li><em>仅使用 JavaScript 过渡的元素时添加 <code>:css=&quot;false&quot;</code>，Vue 会跳过 CSS的检测。这也可以避免过渡过程中 CSS 的影响。</em></li></ul> <h5 id="初始渲染的过渡"><a href="#初始渲染的过渡" class="header-anchor">#</a> 初始渲染的过渡</h5> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span> <span class="token attr-name">appear</span><span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- ... --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><ul><li>appear可以自定义类名</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span>
+  <span class="token attr-name">appear</span>
+  <span class="token attr-name">appear-class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>custom-appear-class<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">appear-to-class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>custom-appear-to-class<span class="token punctuation">&quot;</span></span> <span class="token attr-name">(2.1.8+)</span>
+  <span class="token attr-name">appear-active-class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>custom-appear-active-class<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- ... --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><ul><li>appear可以自定义钩子</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span>
+  <span class="token attr-name">appear</span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>before-appear</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>customBeforeAppearHook<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>appear</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>customAppearHook<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>after-appear</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>customAfterAppearHook<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name"><span class="token namespace">v-on:</span>appear-cancelled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>customAppearCancelledHook<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- ... --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="多个元素的过渡"><a href="#多个元素的过渡" class="header-anchor">#</a> 多个元素的过渡</h3> <ul><li><em>当有相同标签名的元素切换时，需要通过 key 特性设置唯一的值来标记以让 Vue 区分它们，否则 Vue 为了效率只会替换相同标签内部的内容。即使在技术上没有必要，给在 <code>&lt;transition&gt;</code>组件中的多个元素设置 key 是一个更好的实践。(加key值很重要)</em></li> <li><code>position：absolute</code>有时候也很重要</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>transition<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>button v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">&quot;docState === 'saved'&quot;</span> key<span class="token operator">=</span><span class="token string">&quot;saved&quot;</span><span class="token operator">&gt;</span>
+    Edit
+  <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>button v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">&quot;docState === 'edited'&quot;</span> key<span class="token operator">=</span><span class="token string">&quot;edited&quot;</span><span class="token operator">&gt;</span>
+    Save
+  <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>button v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">&quot;docState === 'editing'&quot;</span> key<span class="token operator">=</span><span class="token string">&quot;editing&quot;</span><span class="token operator">&gt;</span>
+    Cancel
+  <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>transition<span class="token operator">&gt;</span>
+</code></pre></div><ul><li>过渡模式
+<ul><li>进入和离开同时发生，这是 <code>&lt;transition&gt;</code>的默认行为</li> <li>同时生效的进入和离开的过渡不能满足所有要求，所以 <code>Vue</code> 提供了 过渡模式</li></ul></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">in-out</span><span class="token template-punctuation string">`</span></span>：新元素先进行过渡，完成之后当前元素过渡离开。
+
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">out-in</span><span class="token template-punctuation string">`</span></span>：当前元素先进行过渡，完成之后新元素过渡进入。
+</code></pre></div><h5 id="多个组件的过渡"><a href="#多个组件的过渡" class="header-anchor">#</a> 多个组件的过渡</h5> <ul><li>多个组件的过渡 需要使用动态组件,其他与之前类似：</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>component-fade<span class="token punctuation">&quot;</span></span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>out-in<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name"><span class="token namespace">v-bind:</span>is</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>view<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h5 id="列表过渡"><a href="#列表过渡" class="header-anchor">#</a> 列表过渡</h5> <ul><li>使用 <code>&lt;transition-group&gt;</code> 组件可以同时渲染整个列表，（比如 v-for ）。关于这个组件的几个特点：</li></ul> <ol><li>不同于 <code>&lt;transition&gt;</code>，它会以一个真实元素呈现：默认为一个 <code>&lt;span&gt;</code>。你也可以通过 tag 特性更换为其他元素。</li> <li>过渡模式不可用，因为我们不再相互切换特有的元素。</li> <li>内部元素 总是需要 提供唯一的 key 属性值。</li> <li>CSS 过渡的类将会应用在内部的元素中，而不是这个组/容器本身。</li></ol> <h5 id="列表的排序过渡"><a href="#列表的排序过渡" class="header-anchor">#</a> 列表的排序过渡</h5> <ul><li><code>&lt;transition-group&gt;</code> 组件还有一个特殊之处。不仅可以进入和离开动画，还可以改变定位。要使用这个新功能只需了解新增的 <code>v-move</code>特性，它会在元素的改变定位的过程中应用。</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition-group</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>flip-list<span class="token punctuation">&quot;</span></span> <span class="token attr-name">tag</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>ul<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item in items<span class="token punctuation">&quot;</span></span><span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      {{ item }}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition-group</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-css extra-class"><pre class="language-css"><code>
+<span class="token selector">.flip-list-move</span> <span class="token punctuation">{</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> transform 1s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h3 id="状态过渡"><a href="#状态过渡" class="header-anchor">#</a> 状态过渡</h3> <p>Vue 的过渡系统提供了非常多简单的方法设置进入、离开和列表的动效。那么对于数据元素本身的动效呢，比如：</p> <ul><li>数字和运算</li> <li>颜色的显示</li> <li>SVG 节点的位置</li> <li>元素的大小和其他的属性</li></ul> <p>这些数据要么本身就以数值形式存储，要么可以转换为数值。有了这些数值后，我们就可以结合 Vue 的响应式和组件系统，使用第三方库来实现切换元素的过渡状态。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">11/18/2021, 8:58:59 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/frontend-blogs/assets/js/app.c6807779.js" defer></script><script src="/frontend-blogs/assets/js/2.9c8862ee.js" defer></script><script src="/frontend-blogs/assets/js/23.891c8a20.js" defer></script>
+  </body>
+</html>
