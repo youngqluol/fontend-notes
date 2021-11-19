@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一、进程与线程 | youngqluol&#39;s blogs</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/frontend-blogs/logo.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/frontend-blogs/assets/css/0.styles.09184f4e.css" as="style"><link rel="preload" href="/frontend-blogs/assets/js/app.6cbc603a.js" as="script"><link rel="preload" href="/frontend-blogs/assets/js/2.9c8862ee.js" as="script"><link rel="preload" href="/frontend-blogs/assets/js/26.95944c4a.js" as="script"><link rel="prefetch" href="/frontend-blogs/assets/js/10.ef7b6cc4.js"><link rel="prefetch" href="/frontend-blogs/assets/js/11.4a8ecf3e.js"><link rel="prefetch" href="/frontend-blogs/assets/js/12.a24ed91a.js"><link rel="prefetch" href="/frontend-blogs/assets/js/13.c9b28ca3.js"><link rel="prefetch" href="/frontend-blogs/assets/js/14.db4e34cd.js"><link rel="prefetch" href="/frontend-blogs/assets/js/15.70504961.js"><link rel="prefetch" href="/frontend-blogs/assets/js/16.cc0ad624.js"><link rel="prefetch" href="/frontend-blogs/assets/js/17.5a32792c.js"><link rel="prefetch" href="/frontend-blogs/assets/js/18.19744f08.js"><link rel="prefetch" href="/frontend-blogs/assets/js/19.3ac3f497.js"><link rel="prefetch" href="/frontend-blogs/assets/js/20.a7e5e8a3.js"><link rel="prefetch" href="/frontend-blogs/assets/js/21.37a95cd0.js"><link rel="prefetch" href="/frontend-blogs/assets/js/22.8584ab96.js"><link rel="prefetch" href="/frontend-blogs/assets/js/23.574575ad.js"><link rel="prefetch" href="/frontend-blogs/assets/js/24.b4a1cf90.js"><link rel="prefetch" href="/frontend-blogs/assets/js/25.aad0ee25.js"><link rel="prefetch" href="/frontend-blogs/assets/js/27.db330891.js"><link rel="prefetch" href="/frontend-blogs/assets/js/28.125f617b.js"><link rel="prefetch" href="/frontend-blogs/assets/js/29.a7f7cad5.js"><link rel="prefetch" href="/frontend-blogs/assets/js/3.df072701.js"><link rel="prefetch" href="/frontend-blogs/assets/js/30.67a830ac.js"><link rel="prefetch" href="/frontend-blogs/assets/js/31.facfaada.js"><link rel="prefetch" href="/frontend-blogs/assets/js/32.b726c43e.js"><link rel="prefetch" href="/frontend-blogs/assets/js/33.0e2e0b35.js"><link rel="prefetch" href="/frontend-blogs/assets/js/34.f05dc975.js"><link rel="prefetch" href="/frontend-blogs/assets/js/35.4c4fd6a8.js"><link rel="prefetch" href="/frontend-blogs/assets/js/36.74075f71.js"><link rel="prefetch" href="/frontend-blogs/assets/js/37.4266fc7d.js"><link rel="prefetch" href="/frontend-blogs/assets/js/38.9711023b.js"><link rel="prefetch" href="/frontend-blogs/assets/js/39.560e74bd.js"><link rel="prefetch" href="/frontend-blogs/assets/js/4.9c0d3927.js"><link rel="prefetch" href="/frontend-blogs/assets/js/40.44bd9495.js"><link rel="prefetch" href="/frontend-blogs/assets/js/41.cf182c7c.js"><link rel="prefetch" href="/frontend-blogs/assets/js/42.ffbe87c9.js"><link rel="prefetch" href="/frontend-blogs/assets/js/43.6106fbf5.js"><link rel="prefetch" href="/frontend-blogs/assets/js/44.f831a2f0.js"><link rel="prefetch" href="/frontend-blogs/assets/js/45.f9b1716a.js"><link rel="prefetch" href="/frontend-blogs/assets/js/46.fff54584.js"><link rel="prefetch" href="/frontend-blogs/assets/js/47.77f130e2.js"><link rel="prefetch" href="/frontend-blogs/assets/js/48.4ab60e76.js"><link rel="prefetch" href="/frontend-blogs/assets/js/5.8fb2962b.js"><link rel="prefetch" href="/frontend-blogs/assets/js/6.7a505dc8.js"><link rel="prefetch" href="/frontend-blogs/assets/js/7.1ebac3c6.js"><link rel="prefetch" href="/frontend-blogs/assets/js/8.7a5d7e5c.js"><link rel="prefetch" href="/frontend-blogs/assets/js/9.ecd8904a.js">
+    <link rel="stylesheet" href="/frontend-blogs/assets/css/0.styles.09184f4e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/frontend-blogs/" class="home-link router-link-active"><img src="/frontend-blogs/logo.jpg" alt="youngqluol's blogs" class="logo"> <span class="site-name can-hide">youngqluol's blogs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/JavaScript/" class="nav-link">
+  基础及其他
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/Node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/webpack/" class="nav-link">
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/frontend-blogs/pages/HTML/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/frontend-blogs/pages/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/questions/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/interview/" class="nav-link">
+  面试知识点
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/hr/" class="nav-link">
+  HR面
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/JavaScript/" class="nav-link">
+  基础及其他
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/Node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/webpack/" class="nav-link">
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/frontend-blogs/pages/HTML/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/frontend-blogs/pages/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/questions/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/interview/" class="nav-link">
+  面试知识点
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/hr/" class="nav-link">
+  HR面
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>一、进程与线程</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h4 id="一、进程与线程"><a href="#一、进程与线程" class="header-anchor">#</a> 一、进程与线程</h4> <p><strong>先来一些大致概念</strong>：</p> <ul><li>一个进程由一个或多个线程组成</li> <li>windows电脑的任务管理器里看到的是进程列表</li></ul> <p><strong>再来一个比喻</strong>：</p> <div class="language- extra-class"><pre class="language-text"><code>- 进程是一个工厂，工厂有它的独立资源
+
+- 工厂之间相互独立
+
+- 线程是工厂中的工人，多个工人协作完成任务
+
+- 工厂内有一个或多个工人
+
+- 工人之间共享空间
+</code></pre></div><p><strong>再完善概念</strong>：</p> <div class="language- extra-class"><pre class="language-text"><code>- 工厂的资源 -&gt; 系统分配的内存（独立的一块内存）
+
+- 工厂之间的相互独立 -&gt; 进程之间相互独立
+
+- 多个工人协作完成任务 -&gt; 多个线程在进程中协作完成任务
+
+- 工厂内有一个或多个工人 -&gt; 一个进程由一个或多个线程组成
+
+- 工人之间共享空间 -&gt; 同一进程下的各个线程之间共享程序的内存空间（包括代码段、数据集、堆等
+</code></pre></div><p><strong>官方话术</strong>：</p> <ul><li>进程是cpu资源分配的最小单位（是能拥有资源和独立运行的最小单位）</li> <li>线程是cpu调度的最小单位（线程是建立在进程的基础上的一次程序运行单位，一个进程中可以有多个线程）</li></ul> <p><strong>补充</strong>：</p> <ul><li>不同进程之间也可以通信，不过代价较大</li> <li>现在，一般通用的叫法：单线程与多线程，都是指在一个进程内的单和多。（所以核心还是得属于一个进程才行）</li></ul> <h4 id="二、浏览器是多进程的"><a href="#二、浏览器是多进程的" class="header-anchor">#</a> 二、浏览器是多进程的</h4> <p><strong>具体包含哪些进程</strong>：（仅列举主要进程）</p> <ol><li><p>Browser进程：浏览器的主进程（负责协调、主控），只有一个。作用有：</p> <ul><li>负责浏览器界面显示，与用户交互。如前进，后退等</li> <li>负责各个页面的管理，创建和销毁其他进程</li> <li>将Renderer进程的得到的内存中的Bitmap，绘制到用户界面上</li> <li>网络资源的管理，下载等</li></ul></li> <li><p>第三方插件进程：每种类型的插件对应一个进程，仅当使用该插件时才创建</p></li> <li><p>GPU进程：最多一个，用户3D绘制等</p></li> <li><p>浏览器渲染进程（浏览器内核）（Renderer进程，内部是多线程的）：默认每个标签页面是一个进程，互不影响。主要作用为：</p> <ul><li>页面渲染，脚本执行，事件处理。</li></ul></li></ol> <p><strong>强化记忆</strong>：</p> <p>在浏览器中打开一个网页相当于新起了一个进程（进程内有自己的多线程）</p> <p>浏览器有时会将多个进程合并（空白标签页有时被合并）</p> <h4 id="三、浏览器多进程的优势"><a href="#三、浏览器多进程的优势" class="header-anchor">#</a> 三、浏览器多进程的优势</h4> <p><strong>简单点理解</strong>：如果浏览器是单进程，那么某个Tab页崩溃了，就影响了整个浏览器，体验有多差；同理如果是单进程，插件崩溃了也会影响整个浏览器；而且多进程还有其它的诸多优势。。。</p> <p><strong>无法避免的坏处</strong>：内存等资源消耗会更大，有点空间换时间的意思</p> <h4 id="四、浏览器内核-渲染进程"><a href="#四、浏览器内核-渲染进程" class="header-anchor">#</a> 四、浏览器内核（渲染进程）</h4> <p>对于普通的前端操作来说，最终要的就是渲染进程；</p> <p>页面的渲染，JS的执行，事件的循环，都在这个进程内进行。</p> <p>渲染进程是多<strong>线程</strong>的，包含以下线程：</p> <ol><li><strong>GUI渲染线程</strong>：
+<ul><li>负责渲染浏览器界面，解析HTML，CSS，构建DOM树和RenderObject树，布局和绘制等。</li> <li>当界面需要重绘（Repaint）或由于某种操作引发回流(reflow)时，该线程就会执行</li> <li>注意，<strong>GUI渲染线程与JS引擎线程是互斥的</strong>，当JS引擎执行时GUI线程会被挂起（相当于被冻结了），GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。</li></ul></li> <li><strong>Js引擎线程</strong> <ul><li>也称为JS内核，负责处理Javascript脚本程序。（例如V8引擎）</li> <li>JS引擎线程负责解析Javascript脚本，运行代码。</li> <li>JS引擎一直等待着任务队列中任务的到来，然后加以处理，一个Tab页（renderer进程）中无论什么时候都只有一个JS线程在运行JS程序</li> <li>同样注意，<strong>GUI渲染线程与JS引擎线程是互斥的</strong>，所以如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞。</li></ul></li> <li><strong>事件触发线程</strong> <ul><li>归属于浏览器而不是JS引擎，用来控制事件循环（可以理解，JS引擎自己都忙不过来，需要浏览器另开线程协助）</li> <li>当JS引擎执行代码块如setTimeOut时（也可来自浏览器内核的其他线程,如鼠标点击、AJAX异步请求等），会将对应任务添加到事件线程中</li> <li>当对应的事件符合触发条件被触发时，该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理</li> <li>注意，由于JS的单线程关系，所以这些待处理队列中的事件都得排队等待JS引擎处理（当JS引擎空闲时才会去执行）</li></ul></li> <li><strong>定时触发器线程</strong> <ul><li>传说中的setInterval与setTimeout所在线程</li> <li>浏览器定时计数器并不是由JavaScript引擎计数的,（因为JavaScript引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确）</li> <li>因此通过单独线程来计时并触发定时（计时完毕后，添加到事件队列中，等待JS引擎空闲后执行）</li> <li>注意，W3C在HTML标准中规定，规定要求setTimeout中低于4ms的时间间隔算为4ms。</li></ul></li> <li><strong>异步http请求线程</strong> <ul><li>在XMLHttpRequest在连接后是通过浏览器新开一个线程请求</li> <li>将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中。再由JavaScript引擎执行。</li></ul></li></ol> <h4 id="五、堆和栈"><a href="#五、堆和栈" class="header-anchor">#</a> 五、堆和栈</h4> <p><strong>堆heap</strong>： 队列优先,先进先出</p> <p><strong>栈stack</strong>： 先进后出</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">11/19/2021, 9:43:45 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/frontend-blogs/assets/js/app.6cbc603a.js" defer></script><script src="/frontend-blogs/assets/js/2.9c8862ee.js" defer></script><script src="/frontend-blogs/assets/js/26.95944c4a.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一、mongodb安装配置及项目配置 | youngqluol&#39;s blogs</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/frontend-blogs/logo.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/frontend-blogs/assets/css/0.styles.09184f4e.css" as="style"><link rel="preload" href="/frontend-blogs/assets/js/app.6cbc603a.js" as="script"><link rel="preload" href="/frontend-blogs/assets/js/2.9c8862ee.js" as="script"><link rel="preload" href="/frontend-blogs/assets/js/24.b4a1cf90.js" as="script"><link rel="prefetch" href="/frontend-blogs/assets/js/10.ef7b6cc4.js"><link rel="prefetch" href="/frontend-blogs/assets/js/11.4a8ecf3e.js"><link rel="prefetch" href="/frontend-blogs/assets/js/12.a24ed91a.js"><link rel="prefetch" href="/frontend-blogs/assets/js/13.c9b28ca3.js"><link rel="prefetch" href="/frontend-blogs/assets/js/14.db4e34cd.js"><link rel="prefetch" href="/frontend-blogs/assets/js/15.70504961.js"><link rel="prefetch" href="/frontend-blogs/assets/js/16.cc0ad624.js"><link rel="prefetch" href="/frontend-blogs/assets/js/17.5a32792c.js"><link rel="prefetch" href="/frontend-blogs/assets/js/18.19744f08.js"><link rel="prefetch" href="/frontend-blogs/assets/js/19.3ac3f497.js"><link rel="prefetch" href="/frontend-blogs/assets/js/20.a7e5e8a3.js"><link rel="prefetch" href="/frontend-blogs/assets/js/21.37a95cd0.js"><link rel="prefetch" href="/frontend-blogs/assets/js/22.8584ab96.js"><link rel="prefetch" href="/frontend-blogs/assets/js/23.574575ad.js"><link rel="prefetch" href="/frontend-blogs/assets/js/25.aad0ee25.js"><link rel="prefetch" href="/frontend-blogs/assets/js/26.95944c4a.js"><link rel="prefetch" href="/frontend-blogs/assets/js/27.db330891.js"><link rel="prefetch" href="/frontend-blogs/assets/js/28.125f617b.js"><link rel="prefetch" href="/frontend-blogs/assets/js/29.a7f7cad5.js"><link rel="prefetch" href="/frontend-blogs/assets/js/3.df072701.js"><link rel="prefetch" href="/frontend-blogs/assets/js/30.67a830ac.js"><link rel="prefetch" href="/frontend-blogs/assets/js/31.facfaada.js"><link rel="prefetch" href="/frontend-blogs/assets/js/32.b726c43e.js"><link rel="prefetch" href="/frontend-blogs/assets/js/33.0e2e0b35.js"><link rel="prefetch" href="/frontend-blogs/assets/js/34.f05dc975.js"><link rel="prefetch" href="/frontend-blogs/assets/js/35.4c4fd6a8.js"><link rel="prefetch" href="/frontend-blogs/assets/js/36.74075f71.js"><link rel="prefetch" href="/frontend-blogs/assets/js/37.4266fc7d.js"><link rel="prefetch" href="/frontend-blogs/assets/js/38.9711023b.js"><link rel="prefetch" href="/frontend-blogs/assets/js/39.560e74bd.js"><link rel="prefetch" href="/frontend-blogs/assets/js/4.9c0d3927.js"><link rel="prefetch" href="/frontend-blogs/assets/js/40.44bd9495.js"><link rel="prefetch" href="/frontend-blogs/assets/js/41.cf182c7c.js"><link rel="prefetch" href="/frontend-blogs/assets/js/42.ffbe87c9.js"><link rel="prefetch" href="/frontend-blogs/assets/js/43.6106fbf5.js"><link rel="prefetch" href="/frontend-blogs/assets/js/44.f831a2f0.js"><link rel="prefetch" href="/frontend-blogs/assets/js/45.f9b1716a.js"><link rel="prefetch" href="/frontend-blogs/assets/js/46.fff54584.js"><link rel="prefetch" href="/frontend-blogs/assets/js/47.77f130e2.js"><link rel="prefetch" href="/frontend-blogs/assets/js/48.4ab60e76.js"><link rel="prefetch" href="/frontend-blogs/assets/js/5.8fb2962b.js"><link rel="prefetch" href="/frontend-blogs/assets/js/6.7a505dc8.js"><link rel="prefetch" href="/frontend-blogs/assets/js/7.1ebac3c6.js"><link rel="prefetch" href="/frontend-blogs/assets/js/8.7a5d7e5c.js"><link rel="prefetch" href="/frontend-blogs/assets/js/9.ecd8904a.js">
+    <link rel="stylesheet" href="/frontend-blogs/assets/css/0.styles.09184f4e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/frontend-blogs/" class="home-link router-link-active"><img src="/frontend-blogs/logo.jpg" alt="youngqluol's blogs" class="logo"> <span class="site-name can-hide">youngqluol's blogs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/JavaScript/" class="nav-link">
+  基础及其他
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/Node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/webpack/" class="nav-link">
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/frontend-blogs/pages/HTML/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/frontend-blogs/pages/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/questions/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/interview/" class="nav-link">
+  面试知识点
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/hr/" class="nav-link">
+  HR面
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="JavaScript" class="dropdown-title"><span class="title">JavaScript</span> <span class="arrow down"></span></button> <button type="button" aria-label="JavaScript" class="mobile-dropdown-title"><span class="title">JavaScript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/JavaScript/" class="nav-link">
+  基础及其他
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/Node/" class="nav-link router-link-active">
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/webpack/" class="nav-link">
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/frontend-blogs/pages/HTML/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/frontend-blogs/pages/Vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/questions/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/interview/" class="nav-link">
+  面试知识点
+</a></li><li class="dropdown-item"><!----> <a href="/frontend-blogs/pages/other/hr/" class="nav-link">
+  HR面
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>一、mongodb安装配置及项目配置</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h4 id="一、mongodb安装配置及项目配置"><a href="#一、mongodb安装配置及项目配置" class="header-anchor">#</a> 一、mongodb安装配置及项目配置</h4> <h4 id="本地安装及配置"><a href="#本地安装及配置" class="header-anchor">#</a> 本地安装及配置</h4> <h5 id="_1-安装"><a href="#_1-安装" class="header-anchor">#</a> 1. 安装</h5> <ol><li>官网下载：https://www.mongodb.com/try/download/community</li> <li>下载 .msi 文件，下载后双击该文件，按操作提示安装即可。</li> <li>安装过程中，你可以通过点击&quot;<code>Custom</code>(自定义)&quot;按钮来设置你的安装目录。</li> <li>下一步安装 &quot;<code>installmongoDBcompass</code>&quot;不勾选（当然你也可以选择安装它，可能需要更久的安装时间），<code>MongoDBCompass</code>是一个图形界面管理工具，我们可以在后面自己到官网下载安装，下载地址：https://www.mongodb.com/download-center/compass。</li></ol> <h5 id="_2-配置"><a href="#_2-配置" class="header-anchor">#</a> 2. 配置</h5> <ol><li>进入安装的根目录</li> <li>在根目录下创建几个文件夹（已有的话就不创建了），具体如下：
+<ul><li>数据库路径（<code>data/db</code>目录）</li> <li>日志路径（<code>log</code>目录）和日志文件（<code>log/mongo.log</code>文件）</li></ul></li> <li>根目录下创建<code>mongo.conf</code>:</li></ol> <div class="language- extra-class"><pre class="language-text"><code>#数据库路径
+dbpath=D:\Program Files\MongoDB\data\db
+#日志输出文件路径
+logpath=D:\program Files\MongoDB\log\mongo.log
+#错误日志采用追加模式
+logappend=true
+#启用日志文件，默认启用
+journal=true
+#端口号
+port=27017
+</code></pre></div><ol start="4"><li>配置mongod系统环境变量(配置后才可以使用mongod命令)，path值：</li></ol> <div class="language- extra-class"><pre class="language-text"><code>D:\Program Files\MongoDB\bin
+</code></pre></div><ol start="5"><li>通过windows服务来管理MongoDB的启动和关闭，在根目录下打开终端，执行：</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 根据自己的安装路径来
+mongod –config “D:\Mongo\mongo.conf” –install –serviceName “MongoDB”
+</code></pre></div><ol start="6"><li>启动MongoDB服务：</li></ol> <div class="language- extra-class"><pre class="language-text"><code>net start MongoDB
+</code></pre></div><ol start="7"><li>关闭MongoDB服务</li></ol> <div class="language- extra-class"><pre class="language-text"><code>net stop MongoDB
+</code></pre></div><ol start="8"><li>移除 MongoDB 服务</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 根据自己的安装路径来
+C:\mongodb\bin\mongod.exe --remove
+</code></pre></div><h4 id="云端数据库配置"><a href="#云端数据库配置" class="header-anchor">#</a> 云端数据库配置</h4> <ol><li>登录mongodb: <a href="https://account.mongodb.com/account/login?n=%2Fv2%2F6103cb216ef44e5b35fd3181&amp;nextHash=%23clusters%3FfastPoll%3Dtrue" target="_blank" rel="noopener noreferrer">网址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> (如果没有，先创建账号)</li></ol> <div class="language- extra-class"><pre class="language-text"><code>email: young_luo123@163.com
+passport: Lyq953342912.
+</code></pre></div><ol start="2"><li>创建数据库</li> <li>点击<code>connect</code>，  选择连接方式为：<code>Connect your application</code>，根据提示，找到该数据库的uri，在node应用代码里配置即可</li> <li>点击<code>Browser Collections</code>查看表</li></ol> <h4 id="node应用配置"><a href="#node应用配置" class="header-anchor">#</a> node应用配置</h4> <p>使用mongoose连接</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mongoose'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// const MONDB_URL = &quot;mongodb://127.0.0.1:27017/user&quot;; // 本地mongodb数据库地址</span>
+<span class="token keyword">const</span> <span class="token constant">MONDB_URL</span> <span class="token operator">=</span> <span class="token string">&quot;mongodb+srv://youngqluol:lyq7285600@cluster0.49eox.mongodb.net/user?retryWrites=true&amp;w=majority&quot;</span><span class="token punctuation">;</span> <span class="token comment">// 云端mongodb数据库地址</span>
+
+mongoose<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token constant">MONDB_URL</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  useNewUrlParser<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  useUnifiedTopology<span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> db <span class="token operator">=</span> mongoose<span class="token punctuation">.</span>connection<span class="token punctuation">;</span>
+
+db<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'connected'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'数据库连接成功...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+db<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'数据库连接失败...'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+db<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'disconnected'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'数据库已断开'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> mongoose<span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">11/19/2021, 9:43:45 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/frontend-blogs/assets/js/app.6cbc603a.js" defer></script><script src="/frontend-blogs/assets/js/2.9c8862ee.js" defer></script><script src="/frontend-blogs/assets/js/24.b4a1cf90.js" defer></script>
+  </body>
+</html>
