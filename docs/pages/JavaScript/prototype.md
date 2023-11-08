@@ -1,6 +1,6 @@
 ### 原型链和继承
 ##### 原型链
-![原型链图片](/images/chain2.png)
+![原型链图片](../images/chain2.png)
 
 
 ##### `_proto_`(`[[prototype]]`) 和 `prototype` 的区别

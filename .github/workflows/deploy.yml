@@ -1,31 +1,52 @@
-name: deploy
+name: deploy blogs site
 
 on:
   push:
     branches: [master] # master 分支有 push 时触发
+    
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup Node.js v14.x
-        uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          node-version: '14.x'
+          fetch-depth: 0
 
-      - name: Install
-        run: yarn install # 安装依赖
-
-      - name: Build
-        run: yarn build # 打包
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          publish_dir: ./docs/.vuepress/dist # 部署打包后的 dist 目录
-          github_token: ${{ secrets.BLOGSDEPLOY }} # secret 名
-          user_name: ${{ secrets.MY_USER_NAME }}
-          user_email: ${{ secrets.MY_USER_EMAIL }}
-          commit_message: Update front-blogs # 部署时的 git 提交信息，自由填写
+          node-version: 18
+          cache: pnpm
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build with VitePress
+        run: |
+          pnpm docs:build
+          touch docs/.vitepress/dist/.nojekyll
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: docs/.vitepress/dist
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2

@@ -1,7 +1,5 @@
 # Vuepress 博客搭建与 GitHub 静态页面部署
 
-![](/js/vuepress-blog/banner.jpg)
-
 ## 前言
 
 &emsp;&emsp;最近整理博客文章时，偶然想要把本地文章推送到`GitHub`上维护，毕竟看着很多次的`Git`提交记录和历史线，时间长了总会萌生再去提交几次的想法。
@@ -58,8 +56,6 @@ npm install -D vuepress
 ```
 
 &emsp;&emsp;运行`npm run dev`命令，浏览器访问链接可查看到`README.md`。
-
-![](/js/vuepress-blog/setup.png)
 
 ## 页面
 
@@ -126,11 +122,7 @@ footer: Copyright © xxx
 
 &emsp;&emsp;;`footer`为首页底部，用作博客声明。
 
-![](/js/vuepress-blog/home.png)
-
 &emsp;&emsp;但是`README.md`中粘贴内容后，浏览器刷新并没有任何内容，而命令行则提示重载`README.md`，即重新运行`npm run dev`。
-
-![](/js/vuepress-blog/reload.png)
 
 &emsp;&emsp;运行后浏览器可查看修改的结果，但是你会发现修改一下`README.md`就要重新启动一下项目，非常麻烦。
 
@@ -148,8 +140,6 @@ footer: Copyright © xxx
 ```
 
 &emsp;&emsp;运行后会在根目录下生成`.temp`临时文件。
-
-![](/js/vuepress-blog/temp.png)
 
 &emsp;&emsp;因此若要推送到远程仓库，`.gitignore`应当忽略掉此目录。
 
@@ -214,20 +204,13 @@ module.exports = {
 
 - `title`：网站的标题，并且将会被作为所有页面标题的后缀，默认主题下会显示在导航栏（`navbar`）上
 
-![](/js/vuepress-blog/title.png)
-
 - `description`：网站的描述，将会以`<meta>`标签渲染到所有页面
-
-![](/js/vuepress-blog/description.png)
 
 - `head`：网站的`icon`，其中`href`的基础路径也是`docs/.vuepress/public`
 
-![](/js/vuepress-blog/icon.png)
-
 - `themeConfig.logo`：导航栏（`navbar`）前的图标
+- 
 - `themeConfig.lastUpdated`：获取每个`md`最后一次提交的时间，以合适的格式显示在每个页面的底部
-
-![](/js/vuepress-blog/lastUpdated.png)
 
 > 注意`lastUpdated`是依赖于`git`仓库的，因此所在的项目须初始化为`git`仓库，并且存在一次最新的提交记录
 
@@ -240,8 +223,6 @@ sidebar: false
 ```
 
 - `nav`：导航栏链接，大致包括下拉分组、链接当前网站页面、链接外部页面等，其中链接当前网站页面时，`link`基础路径为`docs`，更为详细说明可参考 [官方文档](https://vuepress.vuejs.org/zh/theme/default-theme-config.html#%E5%AF%BC%E8%88%AA%E6%A0%8F%E9%93%BE%E6%8E%A5)
-
-![](/js/vuepress-blog/nav.png)
 
 ## 发布部署
 
@@ -285,8 +266,6 @@ cd -
 
 &emsp;&emsp;打开`Git Bash`命令行界面，安装了`git`的系统，直接鼠标右键选择打开即可。
 
-![](/js/vuepress-blog/bash.png)
-
 &emsp;&emsp;查看本地有无`.ssh`文件夹，若输出`bash: .../.ssh: No such file or directory`即表示本地未创建过`SSH key`。
 
 ```javascript
@@ -308,13 +287,9 @@ ssh-rsa ...
 
 &emsp;&emsp;;`github`上选择`Settings`，侧边栏点击`SSH and GPG keys`，然后点击`New SSH key`新增公钥。其中`Title`为公钥标签，主要帮助你区分公钥的，可以不填。`Key`即为刚才的公钥，复制粘贴后点击`Add SSH key`新增公钥。
 
-![](/js/vuepress-blog/add.png)
-
 ### 创建仓库 / 脚本推送
 
 &emsp;&emsp;;`github`上选择`New respository`，输入`Repository name`仓库名，点击`Create repository`创建仓库。
-
-![](/js/vuepress-blog/repos.png)
 
 > 注意仓库名称必须为`username（你的用户名）+ .github.io`的方式，否则需要单独配置
 
@@ -327,12 +302,7 @@ git push -f git@github.com:username/uaername.github.io.git master
 
 &emsp;&emsp;;`Git Bash`命令行运行`npm run deploy`，注意只能在`Git Bash`运行，否则会发生错误。
 
-![](/js/vuepress-blog/error.png)
-
 &emsp;&emsp;若本地没有`known_hosts`文件，将会收到如下提示，输入`yes`回车即可。
-
-![](/js/vuepress-blog/host.png)
 
 &emsp;&emsp;最后收到如下信息即表示推送成功并部署在远端了，并且浏览器访问`https//username.github.io`将跳转到`Vuepress`创建的静态博客首页 。
 
-![](/js/vuepress-blog/process.png)
