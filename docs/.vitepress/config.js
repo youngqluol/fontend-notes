@@ -8,7 +8,7 @@ export default defineConfig({
   ],
   base: '/frontend-blogs/',
   srcDir: './pages',
-  assetsDir: './pages/public',
+  assetsDir: 'pages/public',
   lastUpdated: true,
   themeConfig: {
     logo: { src: '/logo.jpg', width: 24, height: 24 },
