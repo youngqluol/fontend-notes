@@ -1,15 +1,15 @@
-## 场景
-- 在Vue或React单页应用中，组件A挂载完毕之后向后台服务发起请求拉取数据，但是由于加载过慢，用户可能期间发生路由跳转或回退，导致组件A卸载，但是组件内部的网络请求并没有立即停止下来，此时的响应数据对于已卸载的组件A而言已经无效。若刚好此时请求响应错误，就可能导致前端实现的兜底弹窗出现在跳转后的页面中，造成视觉干扰
-- 页面存在定时轮询业务，即固定间隔一段时间再次发起请求，这样就可能存在多个请求间的竞争关系，如果上一个请求的响应速度比最近一次请求的响应速度慢，则前者就会覆盖后者，从而导致数据错乱；
-- 类似于关键字搜索或模糊查询等需要频繁发起网络请求的相关业务，可能在一定程度上为了优化程序的执行性能，减少冗余的网络IO，我们会使用防抖(debounce)函数来对请求逻辑进行包装，减少查询次数以降低服务器压力，但是依旧避免不了由于加载耗时过长导致新老请求数据错乱的问题；
-- 针对前端大文件上传等上传服务，需要实现上传进度的暂停与恢复，即断点续传
+### 场景
+1. 在Vue或React单页应用中，组件A挂载完毕之后向后台服务发起请求拉取数据，但是由于加载过慢，用户可能期间发生路由跳转或回退，导致组件A卸载，但是组件内部的网络请求并没有立即停止下来，此时的响应数据对于已卸载的组件A而言已经无效。若刚好此时请求响应错误，就可能导致前端实现的兜底弹窗出现在跳转后的页面中，造成视觉干扰
+1.  页面存在定时轮询业务，即固定间隔一段时间再次发起请求，这样就可能存在多个请求间的竞争关系，如果上一个请求的响应速度比最近一次请求的响应速度慢，则前者就会覆盖后者，从而导致数据错乱；
+2. 类似于关键字搜索或模糊查询等需要频繁发起网络请求的相关业务，可能在一定程度上为了优化程序的执行性能，减少冗余的网络IO，我们会使用防抖(debounce)函数来对请求逻辑进行包装，减少查询次数以降低服务器压力，但是依旧避免不了由于加载耗时过长导致新老请求数据错乱的问题；
+3. 针对前端大文件上传等上传服务，需要实现上传进度的暂停与恢复，即断点续传
 
-## 请求方式
+### 请求方式
 - XMLHttpRequest对象
 - Axios
 - Fetch
 
-### 1. XMLHttpRequest
+#### 一、 XMLHttpRequest
 
 先简单封装一个`request`方法:
 
@@ -132,6 +132,7 @@ request.clearCache = (key) => {
   });
 };
 ```
+
 在以上示例中，我们通过`request.cache`来临时存储请求接口地址以及请求体和XHR实例的映射关系，因为在同一页面中一般可能会涉及到多个接口地址不同的请求，或者同一个请求对应不同的请求体，因此这里考虑加上了请求体以做区分。当然为了作为request.cache中的唯一键名，我们还需要对请求体进行序列化操作，因此简单封装一个序列化工具函数。
 
 ```js
@@ -224,23 +225,19 @@ window.addEventListener('beforeunload', () => request.clearCache(), false);
 // Vue 中路由跳转前清除缓存
 router.beforeEach((to, from, next) => { request.clearCache(); next(); });
 
+
 // React 中路由跳转时清除缓存
-import { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-class App extends Component {
-  componentDidMount() {
-    // 监听路由变化
-    this.props.history.listen(location => {
-      // 通过比较 location.pathname 来判定路由是否发生变化
-      if (this.props.location.pathname !== location.pathname) {
-        // 若路由发生变化，则清除缓存
-        request.clearCache();
-      }
-    });
-  }
+import { useEffect, useLocation } from 'react';
+
+function App() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    return () => {
+      request.clearCache();
+    }
+  }, [pathname])
 }
 
-export default withRouter(App);
 ```
 
 ### 二、Axios
@@ -248,10 +245,6 @@ export default withRouter(App);
 先基础封装：
 
 ```js
-// 安装 axios
-npm install --save axios
-
-// 导入 axios
 import axios from 'axios';
 // 创建 axios 实例
 const instance = axios.create({
