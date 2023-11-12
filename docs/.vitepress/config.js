@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import { resolve } from 'node:path';
 
 export default defineConfig({
   title: 'youngqluol\'s homepage',
@@ -7,14 +8,14 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '../logo.jpg' }]
   ],
   base: '/frontend-blogs/',
-  srcDir: './pages',
-  assetsDir: 'pages/public',
+  srcDir: 'pages',
+  // assetsDir: 'pages/public',
   lastUpdated: true,
   themeConfig: {
     logo: { src: '/logo.jpg', width: 24, height: 24 },
     sidebar: 'auto',
     nav: nav()
-  }
+  },
 })
 
 function nav() {

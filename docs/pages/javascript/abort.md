@@ -1,15 +1,18 @@
-### 场景
-1. 在Vue或React单页应用中，组件A挂载完毕之后向后台服务发起请求拉取数据，但是由于加载过慢，用户可能期间发生路由跳转或回退，导致组件A卸载，但是组件内部的网络请求并没有立即停止下来，此时的响应数据对于已卸载的组件A而言已经无效。若刚好此时请求响应错误，就可能导致前端实现的兜底弹窗出现在跳转后的页面中，造成视觉干扰
-1.  页面存在定时轮询业务，即固定间隔一段时间再次发起请求，这样就可能存在多个请求间的竞争关系，如果上一个请求的响应速度比最近一次请求的响应速度慢，则前者就会覆盖后者，从而导致数据错乱；
-2. 类似于关键字搜索或模糊查询等需要频繁发起网络请求的相关业务，可能在一定程度上为了优化程序的执行性能，减少冗余的网络IO，我们会使用防抖(debounce)函数来对请求逻辑进行包装，减少查询次数以降低服务器压力，但是依旧避免不了由于加载耗时过长导致新老请求数据错乱的问题；
-3. 针对前端大文件上传等上传服务，需要实现上传进度的暂停与恢复，即断点续传
+# 取消请求
 
-### 请求方式
-- XMLHttpRequest对象
+## 场景
+
+1. 在`Vue` 或 `React`单页应用中，组件A挂载完毕之后向后台服务发起请求拉取数据，但是由于加载过慢，用户可能期间发生**路由跳转或回退**，导致组件A卸载，但是组件内部的网络请求并没有立即停止下来，此时的响应数据对于已卸载的组件A而言已经无效。若刚好此时请求响应错误，就可能导致前端实现的兜底弹窗出现在跳转后的页面中，造成视觉干扰;
+2. 页面存在 **定时轮询** 业务，即固定间隔一段时间再次发起请求，这样就可能存在多个请求间的竞争关系，如果上一个请求的响应速度比最近一次请求的响应速度慢，则前者就会覆盖后者，从而导致数据错乱;
+3. 类似于 **关键字搜索** 或 **模糊查询** 等需要频繁发起网络请求的相关业务，可能在一定程度上为了优化程序的执行性能，减少冗余的网络IO，我们会使用防抖(debounce)函数来对请求逻辑进行包装，减少查询次数以降低服务器压力，但是依旧避免不了由于加载耗时过长导致新老请求数据错乱的问题;
+4. 针对前端 **大文件上传** 等上传服务，需要实现上传进度的暂停与恢复，即断点续传;
+
+## 请求方式
+- XMLHttpRequest
 - Axios
 - Fetch
 
-#### 一、 XMLHttpRequest
+### 一、 XMLHttpRequest
 
 先简单封装一个`request`方法:
 
@@ -171,7 +174,7 @@ function request({
     }
     
     // 省略部分代码
-    ...
+    // ...
 
     const xhr = new XMLHttpRequest();
 
@@ -259,20 +262,29 @@ instance.defaults.headers.common['Authorization'] = '';
 instance.defaults.headers.post['Content-Type'] = 'application/json; charset=UTF-8';
 
 // 自定义请求拦截器
-instance.interceptors.request.use(config => {
-  const token = window.localStorage.getItem('token');
-  token && (config.headers['Authorization'] = token);
-  return config;
-}, error => Promise.reject(error));
+instance.interceptors.request.use(
+  config => {
+  // do something
+    return config;
+  }, 
+  error => {
+    return Promise.reject(error)
+  }
+);
 
 // 自定义响应拦截器
-instance.interceptors.response.use(response => {
+instance.interceptors.response.use(
+  response => {
   if (response.status === 200) {
     return Promise.resolve(response.data);
   }
   
-  return Promise.reject(response);
-}, error => Promise.reject(error));
+    return Promise.reject(response);
+  }, 
+  error => {
+    return Promise.reject(error)
+  }
+);
 ```
 
 接下来我们结合Axios提供的CancelToken构造函数来创建一个简单的post请求：
@@ -333,9 +345,6 @@ import { CacheUtils } from './cacheUtils.js';
 instance.interceptors.request.use(config => {
   let cacheKey = config.url;
   
-  const token = window.localStorage.getItem('token');
-  token && (config.headers['Authorization'] = token);
-  
   const method = config.method.toLowerCase();
   if (method === 'get' && config.params && typeof config.params === 'object') {
     cacheKey += qs.stringify(config.params, { addQueryPrefix: true });
@@ -380,5 +389,22 @@ instance.interceptors.response.use(response => {
   
   return Promise.reject(error);
 });
-
 ```
+
+### 三、fetch
+
+`fetch API` 的取消
+
+```js
+const controller = new AbortController();
+
+fetch('http://url?a=1', {
+  signal: controller.signal
+}).then(resp => resp.json()).then(data => {
+  // do something
+})
+
+// 取消
+controller.abort();
+```
+
