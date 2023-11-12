@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress';
 import { resolve } from 'node:path';
 
 export default defineConfig({
-  title: 'youngqluol\'s homepage',
+  title: 'youngqluol',
   description: 'just some learning notes',
   head: [
     ['link', { rel: 'icon', href: '../logo.jpg' }]
