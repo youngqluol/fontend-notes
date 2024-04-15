@@ -5,7 +5,7 @@ sidebar: false
 
 # JavaScript
 
-1. [事件循环（浏览器篇）](./浏览器事件循环.md)
+1. [事件循环（浏览器篇）](./eventloop.md)
 2. [跨域](./cors.md)
 3. [原型、继承](./prototype.md)
 4. [正则基础](./RegExp.md)
@@ -14,5 +14,6 @@ sidebar: false
 7. [http相关](./http.md)
 8. [前端路由](./router.md)
 9. [websocket](./websocket.md)
-10. [节流防抖](./jieliufangdou.md)
+10. [节流防抖](./debounce_throttle.md)
 11. [vuepress搭建博客](./vuepress.md)
+12. [commonjs和ESM](./CJS_ESM.md)
