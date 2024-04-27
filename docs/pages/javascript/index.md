@@ -8,7 +8,7 @@ sidebar: false
 1. [关于this](./关于this.md)
 2. [事件循环（浏览器篇）](./eventloop.md)
 3. [跨域](./cors.md)
-4. [原型、继承](./prototype.md)
+4. [原型链](./原型链.md)
 5. [正则基础](./RegExp.md)
 6. [前端调试](./debugger.md)
 7. [请求取消的几种方式](./abort.md)
